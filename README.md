@@ -13,8 +13,6 @@ A program demonstrating  production volumes graphs  which depend on employers qu
 Project is created with:
 * React v16.4.1
 * React-Redux v5.0.7
-* Redux-thunk  v2.3.0
-* Axios v0.18.0
 * Google Firebase
 
 ## Setup
