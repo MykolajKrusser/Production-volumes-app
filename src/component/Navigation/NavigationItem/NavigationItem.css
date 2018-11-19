@@ -1,0 +1,12 @@
+.NavItem{
+    margin: 10px auto;
+    text-decoration: none;
+    text-shadow: 0px 6px 14px rgba(170,178,212,0.6);
+    transition: all 0.2s linear;
+    font-size: 1.1rem;
+}
+.NavItem:hover{
+    color: #aab2d4;
+    text-shadow: 0px 0px 14px rgba(170,178,212,0.6);
+    transition: all 0.2s linear;
+}
