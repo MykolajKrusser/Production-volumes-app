@@ -63,7 +63,7 @@ class Main extends Component{
             options:{
                 title:{
                     display: true,
-                    text: "Employers amount with productivity ratio = 1.3",
+                    text: "Employers amount with productivity ratio",
                     fontSize: 25
                 }
             }
@@ -87,6 +87,7 @@ class Main extends Component{
         );
         updatedProdVolData.datasets[1].data = updatedProdVolDataset;
         this.setState({prodVolData: updatedProdVolData});
+        this.totalProdVol();
     };
 
     totalProdVol = ()=>{
@@ -97,7 +98,11 @@ class Main extends Component{
         this.setState({totalProdVol: totalProdVol})
     };
 
+    productivityRatioHandler = (event)=>{
+        this.setState({productivityRatio:  event.target.value })
+    }
     render(){
+        console.log(this.state.productivityRatio)
         return(
             <section className={classes.Main}>
                 <div className={classes.Cont}>
@@ -111,6 +116,8 @@ class Main extends Component{
                         }}
                     />
                 </div>
+                <input type='text' onChange={this.productivityRatioHandler} value={this.state.productivityRatio}/>
+                <button onClick={this.productivityRatio}>Calc</button>
                 <p className={classes.TotalProd}>
                     Production volume per year = {this.state.totalProdVol} parts.
                 </p>
