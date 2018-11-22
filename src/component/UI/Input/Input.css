@@ -1,0 +1,15 @@
+.Input{
+    border: 2px solid #1e70bf;
+    border-radius: 20px;
+    text-align: center;
+    color: black;
+    margin: 50px auto;
+    outline: none;
+    background: #aab2d4;
+    transition: all 0.3s ease;
+}
+
+.Input:hover{
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}

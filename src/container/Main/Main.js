@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
 
+import Input from '../../component/UI/Input/Input';
+import Button from '../../component/UI/Button/Button';
+
 import classes from './Main.css';
 
 class Main extends Component{
@@ -116,8 +119,12 @@ class Main extends Component{
                         }}
                     />
                 </div>
-                <input type='text' onChange={this.productivityRatioHandler} value={this.state.productivityRatio}/>
-                <button onClick={this.productivityRatio}>Calc</button>
+                <Input 
+                    type='text' 
+                    onChange={this.productivityRatioHandler} 
+                    value={this.state.productivityRatio}
+                    title='0.5-2'/>
+                <Button onClick={this.productivityRatio}>Calc</Button>
                 <p className={classes.TotalProd}>
                     Production volume per year = {this.state.totalProdVol} parts.
                 </p>
