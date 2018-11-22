@@ -79,9 +79,15 @@ const reducer = (state=initialState, actions)=>{
                 )
             );
             updatedProdVolData.datasets[1].data = updatedProdVolDataset;
+
+            const prodVolPerMont = state.prodVolData.datasets[1].data
+            const totalProdVo = prodVolPerMont.reduce((sum, current)=>(
+                sum + current
+                ));
             return{
                 ...state,
-               prodVolData: updatedProdVolData
+               prodVolData: updatedProdVolData,
+               totalProdVol: totalProdVo
             }
         case actionsType.PRODUCTION_VOL_SUM:
             const prodVolPerMonth = state.prodVolData.datasets[1].data
@@ -91,6 +97,12 @@ const reducer = (state=initialState, actions)=>{
             return{
                 ...state,
                 totalProdVol: totalProdVol
+            }
+        case actionsType.PRODUCTION_RATIO_HANDLER:
+            const eventValue = actions.event.target.value
+            return{
+                ...state,
+                productivityRatio: eventValue
             }
         default :
             return state;

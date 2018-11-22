@@ -13,10 +13,6 @@ class Main extends Component{
         this.props.onProductionVolMonth();
         this.props.onProductionVolSum();
     }
-
-    productivityRatioHandler = (event)=>{
-        this.setState({productivityRatio:  event.target.value })
-    }
     render(){
         return(
             <section className={classes.Main}>
@@ -33,10 +29,10 @@ class Main extends Component{
                 </div>
                 <Input 
                     type='text' 
-                    onChange={this.productivityRatioHandler} 
+                    onChange={this.props.onProductivityRatioHandler} 
                     value={this.props.productivityRatio}
                     title='0.5-2'/>
-                <Button onClick={this.productivityRatio}>Calc</Button>
+                <Button onClick={this.props.onProductionVolMonth}>Calc</Button>
                 <p className={classes.TotalProd}>
                     Production volume per year = {this.props.totalProdVol} parts.
                 </p>
@@ -56,7 +52,8 @@ const mapStoP = state =>{
 const mapDtoP = dispatch => {
     return{
         onProductionVolMonth: ()=> dispatch({type: action.PRODUCTION_VOL_MONTH}),
-        onProductionVolSum: ()=> dispatch({type: action.PRODUCTION_VOL_SUM})
+        onProductionVolSum: ()=> dispatch({type: action.PRODUCTION_VOL_SUM}),
+        onProductivityRatioHandler: (event)=> dispatch({type: action.PRODUCTION_RATIO_HANDLER, event: event})
     }
 }
 
