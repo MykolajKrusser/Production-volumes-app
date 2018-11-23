@@ -3,8 +3,8 @@ import {Bar} from 'react-chartjs-2';
 import {connect} from 'react-redux';
 import * as action from '../../store/actions/actionTypes';
 
-import Input from '../../component/UI/Input/Input';
-import Button from '../../component/UI/Button/Button';
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
 
 import classes from './Main.css';
 
@@ -27,15 +27,18 @@ class Main extends Component{
                         }}
                     />
                 </div>
-                <Input 
+                <div className={classes.MainBlock}>
+                    <Input 
                     type='text' 
                     onChange={this.props.onProductivityRatioHandler} 
                     value={this.props.productivityRatio}
                     title='0.5-2'/>
-                <Button onClick={this.props.onProductionVolMonth}>Calc</Button>
-                <p className={classes.TotalProd}>
-                    Production volume per year = {this.props.totalProdVol} parts.
-                </p>
+                    <Button onClick={this.props.onProductionVolMonth}>Calc</Button>
+                    <p className={classes.TotalProd}>
+                        Production volume per year = {this.props.totalProdVol} parts.
+                    </p>
+                </div>
+                
             </section>
         );
     }

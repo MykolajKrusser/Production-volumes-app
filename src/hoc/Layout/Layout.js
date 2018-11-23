@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Wrap from '../Wrap/Wrap';
 import classes from './Layout.css';
-import Navigation from '../../component/Navigation/Navigation';
-import Header from '../../component/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
+import Header from '../../components/Header/Header';
 
 class Layout extends Component { 
     render(){

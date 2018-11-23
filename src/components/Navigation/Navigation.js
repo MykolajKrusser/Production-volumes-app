@@ -5,9 +5,9 @@ import NavigationItem from './NavigationItem/NavigationItem';
 const navigation = (props)=>(
     <nav className={classes.SideNav}>
         <NavigationItem link='/' exact>Main</NavigationItem>
-        <NavigationItem link='/workflow' exact>Workflow</NavigationItem>
-        <NavigationItem link='/chat' exact>Chat</NavigationItem>
-        <NavigationItem link='/total' exact>Total</NavigationItem>
+        <NavigationItem link='/workflow'>Workflow</NavigationItem>
+        <NavigationItem link='/chat'>Chat</NavigationItem>
+        <NavigationItem link='/total'>Total</NavigationItem>
     </nav>
 );
 
