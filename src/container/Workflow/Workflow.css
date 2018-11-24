@@ -6,6 +6,7 @@
 .Table li{
     border-bottom: 1px solid white;
     margin: 5px 0;
+    color: #1e70bf
 }
 .Table ul{
     list-style: none;
@@ -14,4 +15,9 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 5px;
+}
+.Line{
+    min-width: 100%;
+    min-height: 450px;
+    margin-left: 20px;
 }
