@@ -88,22 +88,34 @@ const reducer = (state=initialState, actions)=>{
                 ...state,
                prodVolData: updatedProdVolData,
                totalProdVol: totalProdVo
-            }
+            };
         case actionsType.PRODUCTION_VOL_SUM:
-            const prodVolPerMonth = state.prodVolData.datasets[1].data
+            const prodVolPerMonth = state.prodVolData.datasets[1].data;
             const totalProdVol = prodVolPerMonth.reduce((sum, current)=>(
                 sum + current
                 ));
             return{
                 ...state,
                 totalProdVol: totalProdVol
-            }
+            };
         case actionsType.PRODUCTION_RATIO_HANDLER:
-            const eventValue = actions.event.target.value
+            const eventValue = actions.event.target.value;
             return{
                 ...state,
                 productivityRatio: eventValue
-            }
+            };
+        case actionsType.EMPOLOYER_AMOUNT_HANDLER:
+            const oldState = state.prodVolData;
+            const updatedProdVol = {...state.prodVolData};
+            const updatedEmployersData = oldState.datasets[0].data;
+            
+            updatedEmployersData[actions.event.target.id] = actions.event.target.value
+            updatedProdVol.datasets[0].data = updatedEmployersData
+        
+            return{
+                ...state,
+                prodVolData: updatedProdVol
+            };
         default :
             return state;
     }

@@ -18,3 +18,11 @@ export const productivityRatioHandler = (event)=>{
         event: event
     };
 };
+
+export const EmployerAmountHandler = (event, id)=>{
+    return{
+        type: actionTypes.EMPOLOYER_AMOUNT_HANDLER,
+        event: event,
+        
+    };
+};

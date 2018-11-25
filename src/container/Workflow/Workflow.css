@@ -5,8 +5,9 @@
 }
 .Table li{
     border-bottom: 1px solid white;
-    margin: 5px 0;
-    color: #1e70bf
+    margin: 0;
+    color: #1e70bf;
+    height: 36px;
 }
 .Table ul{
     list-style: none;

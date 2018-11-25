@@ -7,7 +7,9 @@ const input = (props)=>(
         type={props.type} 
         value={props.value} 
         title={props.title}
-        onChange={props.onChange}/>
+        onChange={props.onChange}
+        style={{width: props.width}}
+        id={props.id}/>
 );
 
 export default input;

@@ -11,12 +11,11 @@ import classes from './Workflow.css';
 class Workflow extends Component{
     
     render(){
-        console.log(this.props.prodVolData)
         const months = this.props.prodVolData.labels;
         let employers = this.props.prodVolData.datasets[0].data;
 
-        let employersList = employers.map(employer=>{
-            return <li key={employer * Math.random()}>{employer}</li>
+        let employersList = employers.map((employer, index)=>{
+            return <li key={employer * Math.random()}><Input id={index} onChange={this.props.onEmployerAmountHandler} value={employer} width='50px'/></li>
         })
 
         let monthsList = months.map(month=>{
@@ -78,13 +77,13 @@ class Workflow extends Component{
 
 const mapStoP = state =>{
     return{
-        prodVolData: state.prodVolData,
+        prodVolData: state.prodVolData
     };
 };
 
 const mapDtoP = dispatch => {
     return{
-        
+        onEmployerAmountHandler: (event)=>dispatch({type: action.EMPOLOYER_AMOUNT_HANDLER, event: event})
     }
 }
 
