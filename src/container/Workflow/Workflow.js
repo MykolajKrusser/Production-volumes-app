@@ -8,6 +8,7 @@ import Button from '../../components/UI/Button/Button';
 
 import classes from './Workflow.css';
 
+
 class Workflow extends Component{
     
     render(){
@@ -15,7 +16,7 @@ class Workflow extends Component{
         let employers = this.props.prodVolData.datasets[0].data;
 
         let employersList = employers.map((employer, index)=>{
-            return <li key={employer * Math.random()}><Input id={index} onChange={this.props.onEmployerAmountHandler} value={employer} width='50px'/></li>
+            return <li key={index}><Input id={index} onChange={this.props.onEmployerAmountHandler} value={employer} width='50px'/></li>
         })
 
         let monthsList = months.map(month=>{
@@ -26,7 +27,7 @@ class Workflow extends Component{
             labels: this.props.prodVolData.labels,
             datasets: [
                 {
-                  label: this.props.prodVolData.datasets[0].label,
+                  label: 'REFRESH GRAPH',
                   fill: false,
                   lineTension: 0.1,
                   backgroundColor: '#1e70bf',
@@ -48,7 +49,7 @@ class Workflow extends Component{
                 }
             ]
         }
-
+        console.log(this.props.prodVolData)
         return(
             <section className={classes.Workflow}>
                 <div className={classes.Table}>

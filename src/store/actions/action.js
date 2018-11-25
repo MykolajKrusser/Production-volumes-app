@@ -19,10 +19,9 @@ export const productivityRatioHandler = (event)=>{
     };
 };
 
-export const EmployerAmountHandler = (event, id)=>{
+export const EmployerAmountHandler = (event)=>{
     return{
         type: actionTypes.EMPOLOYER_AMOUNT_HANDLER,
-        event: event,
-        
+        event: event
     };
 };

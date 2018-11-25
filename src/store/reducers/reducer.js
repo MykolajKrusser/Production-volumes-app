@@ -73,8 +73,8 @@ const reducer = (state=initialState, actions)=>{
     switch(actions.type){
         case actionsType.PRODUCTION_VOL_MONTH:
             const oldProdVolData = state.prodVolData;
-            const updatedProdVolData = {...state.prodVolData};
-            const updatedProdVolDataset = oldProdVolData.datasets[0].data.map((x)=>(
+            const updatedProdVolData = {...oldProdVolData};
+            const updatedProdVolDataset = updatedProdVolData.datasets[0].data.map((x)=>(
                 Math.round(x * state.productivityRatio)
                 )
             );
@@ -83,7 +83,7 @@ const reducer = (state=initialState, actions)=>{
             const prodVolPerMont = state.prodVolData.datasets[1].data
             const totalProdVo = prodVolPerMont.reduce((sum, current)=>(
                 sum + current
-                ));
+            ));
             return{
                 ...state,
                prodVolData: updatedProdVolData,
@@ -93,7 +93,7 @@ const reducer = (state=initialState, actions)=>{
             const prodVolPerMonth = state.prodVolData.datasets[1].data;
             const totalProdVol = prodVolPerMonth.reduce((sum, current)=>(
                 sum + current
-                ));
+            ));
             return{
                 ...state,
                 totalProdVol: totalProdVol
@@ -106,12 +106,11 @@ const reducer = (state=initialState, actions)=>{
             };
         case actionsType.EMPOLOYER_AMOUNT_HANDLER:
             const oldState = state.prodVolData;
-            const updatedProdVol = {...state.prodVolData};
-            const updatedEmployersData = oldState.datasets[0].data;
+            const updatedProdVol = {...oldState};
+            const updatedEmployersData = updatedProdVol.datasets[0].data;
             
-            updatedEmployersData[actions.event.target.id] = actions.event.target.value
-            updatedProdVol.datasets[0].data = updatedEmployersData
-        
+            updatedEmployersData[actions.event.target.id] = Number(actions.event.target.value)
+            
             return{
                 ...state,
                 prodVolData: updatedProdVol
