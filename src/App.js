@@ -4,12 +4,15 @@ import Layout from './hoc/Layout/Layout';
 import Page404 from './components/UI/Page404/Page404';
 import Main from './container/Main/Main';
 import Workflow from './container/Workflow/Workflow';
+import Chatroom from './components/Chat/Chat';
+
 
 class App extends Component {
   render() {
     return (
         <Layout>
           <Switch>
+            <Route path='/chat' component={Chatroom}/>
             <Route path='/workflow' component={Workflow}/>
             <Route path='/' exact component={Main}/>
             <Route component={Page404}/>

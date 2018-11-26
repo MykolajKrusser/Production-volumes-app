@@ -27,7 +27,7 @@ class Workflow extends Component{
             labels: this.props.prodVolData.labels,
             datasets: [
                 {
-                  label: 'REFRESH GRAPH',
+                  label: 'REFRESH THE GRAPH',
                   fill: false,
                   lineTension: 0.1,
                   backgroundColor: '#1e70bf',

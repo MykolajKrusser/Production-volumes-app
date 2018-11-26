@@ -1,0 +1,23 @@
+.Chat{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.IncomeList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 20%;
+}
+
+.IncomeList li{
+    list-style: none;
+    border-bottom: 1px solid white;
+    transition: all 0.3s ease-in-out;
+}
+
+.IncomeList li:hover{
+    background: #2F3241;
+    transition: all 0.3s ease-in-out;
+}
