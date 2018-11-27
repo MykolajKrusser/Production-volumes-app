@@ -72,7 +72,7 @@ class Chat extends Component {
             };
         let newSend = updatedState.correspond.concat(newMessage);
         
-        this.setState({correspond: newSend})
+        this.setState({correspond: newSend, textMessage: ''})
     }
 
     render() {
@@ -101,15 +101,16 @@ class Chat extends Component {
             :   <div className={classes.ChatRoom}>
                 <Button onClick={this.onCloseChatroom}>Close Chatroom</Button>
                     {chats}
-                <form className={classes.Inputs}>
+                <div className={classes.Inputs}>
                     <Input 
                         type='text' 
                         width={'80%'} 
                         background={'#1e70bf'}  
                         placeholder='Write a message'
+                        value={this.state.textMessage}
                         onChange={this.handleChangeTextMessage}/>
                     <Button onClick={this.sendMessageHandler}>Send</Button>
-                </form>
+                </div>
                 </div>;
 
         return(
