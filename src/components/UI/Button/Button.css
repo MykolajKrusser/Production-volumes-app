@@ -1,6 +1,6 @@
 .Button{
     border: 2px solid #aab2d4;
-    height: 40px;
+    min-height: 40px;
     width: 100px;
     border-radius: 20px;
     text-align: center;
@@ -9,6 +9,7 @@
     outline: none;
     background:#1e70bf;
     transition: all 0.3s ease;
+    color: white;
 }
 .Button:hover{
     transform: scale(1.2);

@@ -4,7 +4,6 @@ import {Line} from 'react-chartjs-2';
 import * as action from '../../store/actions/actionTypes';
 
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
 
 import classes from './Workflow.css';
 

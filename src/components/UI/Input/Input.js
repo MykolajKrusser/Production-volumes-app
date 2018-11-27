@@ -8,7 +8,8 @@ const input = (props)=>(
         value={props.value} 
         title={props.title}
         onChange={props.onChange}
-        style={{width: props.width}}
+        style={{width: props.width, background: props.background}}
+        placeholder={props.placeholder}
         id={props.id}/>
 );
 

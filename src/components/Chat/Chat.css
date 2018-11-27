@@ -1,7 +1,7 @@
 .Chat{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
 }
 
 .IncomeList{
@@ -9,6 +9,10 @@
     flex-direction: column;
     justify-content: space-between;
     min-width: 20%;
+}
+.IncomeList img:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.3)
 }
 
 .IncomeList li{
@@ -20,4 +24,47 @@
 .IncomeList li:hover{
     background: #2F3241;
     transition: all 0.3s ease-in-out;
+}
+
+.ChatRoom{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 30px;
+    background: #2F3241;
+    transition: all 0.3s ease-in-out;
+}
+.ChatRoom img:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.3)
+}
+
+.Right{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #aab2d4;
+    margin: 7px auto 7px 7px;
+    border: 1px solid #1e70bf;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.ChatMessage{
+    padding: 10px;
+}
+
+.Left{
+    padding: 5px;
+    margin: 7px  7px 7px auto;
+    border: 1px solid #aab2d4;
+    background:  #1e70bf;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

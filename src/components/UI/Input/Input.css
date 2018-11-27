@@ -7,8 +7,11 @@
     outline: none;
     background: #aab2d4;
     transition: all 0.3s ease;
+    color: white;
 }
-
+.Input::placeholder{
+    color: black;
+}
 .Input:hover{
     transform: scale(1.2);
     transition: all 0.3s ease;
