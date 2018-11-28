@@ -6,6 +6,7 @@ import classes from './NavigationItem.css';
 const navigationItem = (props)=>(
     <NavLink
         className={classes.NavItem}
+        activeClassName={classes.Active}
         to={props.link} 
         exact={props.exact}
     >

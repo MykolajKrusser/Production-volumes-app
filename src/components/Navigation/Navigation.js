@@ -7,7 +7,7 @@ const navigation = (props)=>(
         <NavigationItem link='/' exact>Main</NavigationItem>
         <NavigationItem link='/workflow'>Workflow</NavigationItem>
         <NavigationItem link='/chat'>Chat</NavigationItem>
-        <NavigationItem link='/total'>Total</NavigationItem>
+        <NavigationItem link='/total'>Reports</NavigationItem>
     </nav>
 );
 
