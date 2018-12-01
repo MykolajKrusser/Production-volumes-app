@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import img from '../../assets/img/avatar.jpeg';
-import Avatar from '../UI/Avatar/Avatar';
+import Avatar from '../../components/UI/Avatar/Avatar';
 import classes from './Chat.css';
 
-import Button from '../UI/Button/Button';
-import Input from '../UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
+import Input from '../../components/UI/Input/Input';
 
 
 
