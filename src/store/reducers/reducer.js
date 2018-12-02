@@ -66,7 +66,15 @@ const initialState = {
         
     },
     totalProdVol: null,
-    productivityRatio: 1.3
+    productivityRatio: 1.3,
+    salaryPerHour: 12,
+    workTimeMonth: 160,
+    employersSalary: [],
+    pricePerPart: 2500,
+    incomesBeforTax: [],
+    tax: 0.3,
+    taxesMonth: [],
+    netIncome: []
 }
 
 const reducer = (state=initialState, actions)=>{
@@ -115,6 +123,46 @@ const reducer = (state=initialState, actions)=>{
                 ...state,
                 prodVolData: updatedProdVol
             };
+        case actionsType.EMPOLOYER_SALARY:
+            const updatedProdVolData2 = {...state.prodVolData};
+            const oneWorkerSalary = state.workTimeMonth * state.salaryPerHour;
+            const updatedEmployersSalary = updatedProdVolData2.datasets[0].data.map((x)=>(
+                Math.round(x * oneWorkerSalary)
+                )
+            );
+            return{
+                ...state,
+                employersSalary: updatedEmployersSalary
+            }
+        case actionsType.INCOMES_PER_MONTH:
+            const updatedProdVolData3 = {...state.prodVolData};
+            const updatedState = updatedProdVolData3.datasets[1].data.map(x => {
+                return x * state.pricePerPart
+            })
+            return{
+                ...state,
+                incomesBeforTax: updatedState
+            }
+        case actionsType.TAX_MONTH:
+            const incomesBeforTax = state.incomesBeforTax;
+            const updatedStateTaxes = incomesBeforTax.map(x => {
+                return x * state.tax
+            })
+            return{
+                ...state,
+                taxesMonth: updatedStateTaxes
+            }
+        case actionsType.NET_INCOMES_MONTH:
+            const incomesBeforTax2 = state.incomesBeforTax;
+            const taxesMonth = state.taxesMonth;
+            const employersSalary = state.employersSalary;
+            const updatedStateNetIncome = incomesBeforTax2.map((x, index) => {
+                return x - taxesMonth[index] - employersSalary[index];
+            });
+            return{
+                ...state,
+                netIncome: updatedStateNetIncome
+            }
         default :
             return state;
     }

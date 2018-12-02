@@ -1,219 +1,107 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
+import * as action from '../../store/actions/actionTypes';
 import classes from './Raport.css';
 
-import DateEditor from "react-tabulator/lib/editors/DateEditor";
-import MultiValueFormatter from "react-tabulator/lib/formatters/MultiValueFormatter";
-import MultiSelectEditor from "react-tabulator/lib/editors/MultiSelectEditor";
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
 
-import "react-tabulator/lib/styles.css"; // default theme
-import "react-tabulator/css/bootstrap/tabulator_bootstrap.min.css"; // use Theme(s)
-
-import { React15Tabulator } from "react-tabulator"; // for React 15.x
-
-const columns = [
-    { title: "Name", field: "name", width: 150 },
-    { title: "Age", field: "age", align: "left", formatter: "progress" },
-    { title: "Favourite Color", field: "color" },
-    { title: "Date Of Birth", field: "dob" },
-    { title: "Rating", field: "rating", align: "center", formatter: "star" },
-    { title: "Passed?", field: "passed", align: "center", formatter: "tickCross" }
-  ];
-  const data = [
-    {
-      id: 1,
-      name: "Oli Bob",
-      age: "12",
-      color: "red",
-      dob: "01/01/1980",
-      rating: 5,
-      passed: true,
-      pets: ["cat", "dog"]
-    },
-    {
-      id: 2,
-      name: "Mary May",
-      age: "1",
-      color: "green",
-      dob: "12/05/1989",
-      rating: 4,
-      passed: true,
-      pets: ["cat"]
-    },
-    {
-      id: 3,
-      name: "Christine Lobowski",
-      age: "42",
-      color: "green",
-      dob: "10/05/1985",
-      rating: 4,
-      passed: false
-    },
-    {
-      id: 4,
-      name: "Brendon Philips",
-      age: "125",
-      color: "red",
-      dob: "01/08/1980",
-      rating: 4.5,
-      passed: true
-    },
-    {
-      id: 5,
-      name: "Margret Marmajuke",
-      age: "16",
-      color: "yellow",
-      dob: "07/01/1999",
-      rating: 4,
-      passed: false
-    },
-    {
-      id: 6,
-      name: "Van Ng",
-      age: "37",
-      color: "green",
-      dob: "06/10/1982",
-      rating: 4,
-      passed: true,
-      pets: ["dog", "fish"]
-    },
-    {
-      id: 7,
-      name: "Duc Ng",
-      age: "37",
-      color: "yellow",
-      dob: "10/10/1982",
-      rating: 4,
-      passed: true,
-      pets: ["dog"]
+class Raport extends Component{
+    componentDidMount(){
+        this.props.onEmployersSalary();
+        this.props.onProductionVolMonth();
+        this.props.onIncomesBeforTax();
+        this.props.onIncomesTaxesMonth();
+        this.props.onNetIncomeMonth();
     }
-  ];
-  
-  // Editable Example:
-  const colorOptions = {
-    [""]: "&nbsp;",
-    red: "red",
-    green: "green",
-    yellow: "yellow"
-  };
-  const petOptions = [
-    { id: "cat", name: "cat" },
-    { id: "dog", name: "dog" },
-    { id: "fish", name: "fish" }
-  ];
-  const editableColumns = [
-    {
-      title: "Name",
-      field: "name",
-      width: 150,
-      editor: "input",
-      headerFilter: "input"
-    },
-    {
-      title: "Age",
-      field: "age",
-      align: "left",
-      formatter: "progress",
-      editor: "progress"
-    },
-    {
-      title: "Favourite Color",
-      field: "color",
-      editor: "select",
-      editorParams: {
-        allowEmpty: true,
-        showListOnEmpty: true,
-        values: colorOptions
-      },
-      headerFilter: "select",
-      headerFilterParams: { values: colorOptions }
-    },
-    {
-      title: "Date Of Birth",
-      field: "dob",
-      editor: DateEditor,
-      editorParams: { format: "MM/dd/yyyy" }
-    },
-    {
-      title: "Pets",
-      field: "pets",
-      editor: MultiSelectEditor,
-      editorParams: { values: petOptions },
-      formatter: MultiValueFormatter,
-      formatterParams: { style: "PILL" }
-    },
-    {
-      title: "Passed?",
-      field: "passed",
-      align: "center",
-      formatter: "tickCross",
-      editor: true
-    }
-  ];
-  
-  class Raport extends React.Component {
-    state = {
-      data: []
-    };
-    ref = null;
-  
-    rowClick = (e, row) => {
-      console.log("ref table: ", this.ref.table); // this is the Tabulator table instance
-      console.log("rowClick id: ${row.getData().id}", row, e);
-    };
-  
-    setData = () => {
-      this.setState({ data });
-    };
-  
-    clearData = () => {
-      this.setState({ data: [] });
-    };
-  
-    render() {
-      const options = {
-        height: 150,
-        movableRows: true
-      };
-      return (
-        <div>
-          <React15Tabulator
-            ref={ref => (this.ref = ref)}
-            columns={columns}
-            data={data}
-            rowClick={this.rowClick}
-            options={options}
-            data-custom-attr="test-custom-attribute"
-            className="custom-css-class"
-          />
-  
-          <h3>
-            Asynchronous data: (e.g. fetch) -{" "}
-            <button onClick={this.setData}>Set Data</button>
-            <button onClick={this.clearData}>Clear</button>
-          </h3>
-          <React15Tabulator columns={columns} data={this.state.data} />
-  
-          <h3>Editable Table</h3>
-          <React15Tabulator
-            columns={editableColumns}
-            data={data}
-            footerElement={<span>Footer</span>}
-          />
-  
-          <p>
-            <a href="https://github.com/ngduc/react-tabulator" target="_blank">
-              Back to: Github Repo: react-tabulator
-            </a>
-          </p>
-          <p>
-            <a href="http://tabulator.info/examples/4.0" target="_blank">
-              More Tabulator's Examples
-            </a>
-          </p>
-        </div>
-      );
-    }
-  }
-  
+    render(){
+        const months = this.props.prodVolData.labels.map((month, index)=>{
+            return <div key={index}>{month}</div>
+        });
 
-export default Raport;
+        const empl = this.props.prodVolData.datasets[0].data.map((empl, index)=>{
+            return <div key={index}>{empl}</div>
+        });
+
+        const salary = this.props.employersSalary.map((emplSal, index)=>{
+            return <div key={index}>{emplSal} $</div>
+        });
+
+        const prodVolum = this.props.prodVolData.datasets[1].data.map((vol, index)=>{
+            return <div key={index}>{vol} parts</div>
+        });
+
+        const incomesBTax = this.props.incomesBeforTax.map((inc, index)=>{
+            return <div key={index}>{inc} $</div>
+        });
+
+        const taxesMonth = this.props.taxesMonth.map((tax, index)=>{
+            return <div key={index}>{tax} $</div>
+        });
+
+        const netIncome = this.props.netIncome.map((net, index)=>{
+            return <div key={index}>{net} $</div>
+        });
+
+        console.log(this.props.netIncome)
+        return(
+            <section className={classes.Raport}>
+                <div className={classes.Table}>
+                    <div className={classes.Header}>
+                        <h2>Months</h2>
+                        {months}
+                    </div>
+                    <div className={classes.Header}>
+                        <h2>Employers amount</h2>
+                        {empl}
+                    </div>
+                    <div className={classes.Header}>
+                        <h2>Employers salary</h2>
+                        {salary}
+                    </div>
+                    <div className={classes.Header}>
+                        <h2>ProdVolumes</h2>
+                        {prodVolum}
+                    </div>
+                    <div className={classes.Header}>
+                        <h2>Incomes befor Taxes</h2>
+                        {incomesBTax}
+                    </div>
+                    <div className={classes.Header}>
+                        <h2>Taxes</h2>
+                        {taxesMonth}
+                    </div>
+                    <div className={classes.Header}>
+                        <h2>Net income</h2>
+                        {netIncome}
+                    </div>
+                </div>
+            </section>
+        );
+    };
+};
+
+
+const mapStoP = state =>{
+    return{
+        prodVolData: state.prodVolData,
+        totalProdVol: state.totalProdVol,
+        productivityRatio: state.productivityRatio,
+        employersSalary: state.employersSalary,
+        salaryPerHour: state.salaryPerHour,
+        incomesBeforTax: state.incomesBeforTax,
+        taxesMonth: state.taxesMonth,
+        netIncome: state.netIncome
+    }
+}
+
+const mapDtoP = dispatch => {
+    return{
+        onEmployersSalary: ()=> dispatch({type: action.EMPOLOYER_SALARY}),
+        onProductionVolMonth: ()=> dispatch({type: action.PRODUCTION_VOL_MONTH}),
+        onIncomesBeforTax: ()=>dispatch({type: action.INCOMES_PER_MONTH}),
+        onIncomesTaxesMonth: ()=>dispatch({type: action.TAX_MONTH}),
+        onNetIncomeMonth: ()=>dispatch({type:action.NET_INCOMES_MONTH})
+    }
+}
+export default connect(mapStoP, mapDtoP)(Raport);
