@@ -11,7 +11,7 @@ const control = (props)=>(
             type='text'
             value={props.value}
             onChange={props.input}
-            id={props.id}/>
+            width='70%'/>
         <Button onClick={props.click}>Calc</Button>
     </div>
 );

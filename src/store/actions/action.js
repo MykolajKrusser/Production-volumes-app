@@ -53,6 +53,27 @@ export const netIncomes = ()=>{
 export const changeControlHandler = (event)=>{
     return{
         type: actionTypes.CHANGE_CONTROL_HANDLER,
-        event: event,
+        event: event
+    };
+};
+
+export const changeworkTimeMonth = (event)=>{
+    return{
+        type: actionTypes.CHANGE_WORKTIME_HANDLER,
+        event: event
+    };
+};
+
+export const changepricePerPart = (event)=>{
+    return{
+        type: actionTypes.CHANGE_PRICEPART_HANDLER,
+        event: event
+    };
+};
+
+export const changetax = (event)=>{
+    return{
+        type: actionTypes.CHANGE_TAX_HANDLER,
+        event: event
     };
 };

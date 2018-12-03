@@ -1,5 +1,5 @@
 .Control{
-    width: 250px;
+    width: 200px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,7 @@
     border: 1px solid #1E70BF;
     border-radius: 15px;
     margin: 15px;
+    background: #2F3241;
 }
 
 .Control h3 {

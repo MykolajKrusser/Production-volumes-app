@@ -87,17 +87,25 @@ class Raport extends Component{
                 </div>
                 <div className={classes.ControlPanel}>
                     <Control
-                        id='salaryPerHour'
                         value={this.props.salaryPerHour}
                         input={this.props.onChangeControlHandler}
                         click={this.forcedCall}
                     >Employers salary per hour</Control>
                     <Control
-                        id='salaryPerHour'
                         value={this.props.workTimeMonth}
                         input={this.props.onChangeworkTimeMonth}
                         click={this.forcedCall}
                     >Work hours per month</Control>
+                    <Control
+                        value={this.props.pricePerPart}
+                        input={this.props.onChangepricePerPart}
+                        click={this.forcedCall}
+                    >Production price</Control>
+                    <Control
+                        value={this.props.tax}
+                        input={this.props.onChangetax}
+                        click={this.forcedCall}
+                    >Taxes rate</Control>
                 </div>
             </section>
         );
@@ -115,7 +123,9 @@ const mapStoP = state =>{
         incomesBeforTax: state.incomesBeforTax,
         taxesMonth: state.taxesMonth,
         netIncome: state.netIncome,
-        workTimeMonth: state.workTimeMonth
+        workTimeMonth: state.workTimeMonth,
+        pricePerPart: state.pricePerPart,
+        tax: state.tax
     }
 }
 
@@ -126,7 +136,10 @@ const mapDtoP = dispatch => {
         onIncomesBeforTax: ()=>dispatch({type: action.INCOMES_PER_MONTH}),
         onIncomesTaxesMonth: ()=>dispatch({type: action.TAX_MONTH}),
         onNetIncomeMonth: ()=>dispatch({type: action.NET_INCOMES_MONTH}),
-        onChangeControlHandler: (event)=>dispatch({type: action.CHANGE_CONTROL_HANDLER, event: event})
+        onChangeControlHandler: (event)=>dispatch({type: action.CHANGE_CONTROL_HANDLER, event: event}),
+        onChangeworkTimeMonth: (event)=>dispatch({type: action.CHANGE_WORKTIME_HANDLER, event: event}),
+        onChangepricePerPart: (event)=>dispatch({type: action.CHANGE_PRICEPART_HANDLER, event: event}),
+        onChangetax: (event)=>dispatch({type: action.CHANGE_TAX_HANDLER, event: event}),
     }
 }
 export default connect(mapStoP, mapDtoP)(Raport);

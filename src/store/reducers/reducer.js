@@ -169,6 +169,24 @@ const reducer = (state=initialState, actions)=>{
                 ...state,
                 salaryPerHour: updatedStateSalaryPerHour
             }
+        case actionsType.CHANGE_WORKTIME_HANDLER:
+            const updatedStateworkTimeMonth = actions.event.target.value;
+            return{
+                ...state,
+                workTimeMonth: updatedStateworkTimeMonth
+            }
+        case actionsType.CHANGE_PRICEPART_HANDLER:
+            const updatedStatepricePerPart = actions.event.target.value;
+            return{
+                ...state,
+                pricePerPart: updatedStatepricePerPart
+            }
+        case actionsType.CHANGE_TAX_HANDLER:
+            const updatedStateTax = actions.event.target.value;
+            return{
+                ...state,
+                tax: updatedStateTax
+            }
         default :
             return state;
     }
