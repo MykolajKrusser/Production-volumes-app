@@ -48,7 +48,7 @@ class Workflow extends Component{
                 }
             ]
         }
-        console.log(this.props.prodVolData)
+        
         return(
             <section className={classes.Workflow}>
                 <div className={classes.Table}>

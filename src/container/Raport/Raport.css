@@ -21,6 +21,7 @@
 .Table .Header div, h2{
     border: 1px solid #1E70BF;
     padding: 5px;
+    min-width: 175px;
 }
 
 .Table .Header div:nth-child(2n){

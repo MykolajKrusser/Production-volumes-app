@@ -1,0 +1,11 @@
+/* Calendar */
+.ReactCustomCalendar {
+  border: none;
+  width: 100%;
+}
+.ReactCustomCalendar .react-calendar__navigation {
+  height: 95px;
+  background-color: #393D51;
+  margin-bottom: 0;
+}
+  

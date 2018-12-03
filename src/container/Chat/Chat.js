@@ -71,12 +71,11 @@ class Chat extends Component {
                 date: '2018-04-09T12:59-0500'
             };
         let newSend = updatedState.correspond.concat(newMessage);
-        
-        this.setState({correspond: newSend, textMessage: ''})
+        this.setState({correspond: newSend, textMessage: ''});
     }
 
     render() {
-        console.log(this.state.correspond)
+        console.log(this.state.correspond.length)
         const incomes = this.state.chatUserGroup.map((income, index)=>{
             return <li key={index} id={income.id} onClick={()=>this.ChatUserChangeGroup(index)}>
                 <Avatar src={img}/>

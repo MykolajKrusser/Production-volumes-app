@@ -4,7 +4,6 @@ import * as action from '../../store/actions/actionTypes';
 import classes from './Raport.css';
 
 import Control from '../../components/UI/Control/Control';
-import Input from '../../components/UI/Input/Input';
 
 class Raport extends Component{
     componentDidMount(){
@@ -52,7 +51,6 @@ class Raport extends Component{
             return <div key={index}>{net} $</div>
         });
 
-        console.log(this.props.netIncome)
         return(
             <section className={classes.Raport}>
                 <div className={classes.Table}>
@@ -73,7 +71,7 @@ class Raport extends Component{
                         {prodVolum}
                     </div>
                     <div className={classes.Header}>
-                        <h2>Incomes befor Taxes</h2>
+                        <h2>Incomes before Taxes</h2>
                         {incomesBTax}
                     </div>
                     <div className={classes.Header}>
