@@ -49,3 +49,10 @@ export const netIncomes = ()=>{
         type: actionTypes.NET_INCOMES_MONTH
     };
 };
+
+export const changeControlHandler = (event)=>{
+    return{
+        type: actionTypes.CHANGE_CONTROL_HANDLER,
+        event: event,
+    };
+};

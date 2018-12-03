@@ -163,6 +163,12 @@ const reducer = (state=initialState, actions)=>{
                 ...state,
                 netIncome: updatedStateNetIncome
             }
+        case actionsType.CHANGE_CONTROL_HANDLER:
+            const updatedStateSalaryPerHour = actions.event.target.value;
+            return{
+                ...state,
+                salaryPerHour: updatedStateSalaryPerHour
+            }
         default :
             return state;
     }

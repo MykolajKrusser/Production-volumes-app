@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import * as action from '../../store/actions/actionTypes';
 import classes from './Raport.css';
 
+import Control from '../../components/UI/Control/Control';
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
 
 class Raport extends Component{
     componentDidMount(){
@@ -14,6 +14,15 @@ class Raport extends Component{
         this.props.onIncomesTaxesMonth();
         this.props.onNetIncomeMonth();
     }
+    
+    forcedCall = ()=>{
+        this.props.onEmployersSalary();
+        this.props.onProductionVolMonth();
+        this.props.onIncomesBeforTax();
+        this.props.onIncomesTaxesMonth();
+        this.props.onNetIncomeMonth();
+    }
+
     render(){
         const months = this.props.prodVolData.labels.map((month, index)=>{
             return <div key={index}>{month}</div>
@@ -76,6 +85,20 @@ class Raport extends Component{
                         {netIncome}
                     </div>
                 </div>
+                <div className={classes.ControlPanel}>
+                    <Control
+                        id='salaryPerHour'
+                        value={this.props.salaryPerHour}
+                        input={this.props.onChangeControlHandler}
+                        click={this.forcedCall}
+                    >Employers salary per hour</Control>
+                    <Control
+                        id='salaryPerHour'
+                        value={this.props.workTimeMonth}
+                        input={this.props.onChangeworkTimeMonth}
+                        click={this.forcedCall}
+                    >Work hours per month</Control>
+                </div>
             </section>
         );
     };
@@ -91,7 +114,8 @@ const mapStoP = state =>{
         salaryPerHour: state.salaryPerHour,
         incomesBeforTax: state.incomesBeforTax,
         taxesMonth: state.taxesMonth,
-        netIncome: state.netIncome
+        netIncome: state.netIncome,
+        workTimeMonth: state.workTimeMonth
     }
 }
 
@@ -101,7 +125,8 @@ const mapDtoP = dispatch => {
         onProductionVolMonth: ()=> dispatch({type: action.PRODUCTION_VOL_MONTH}),
         onIncomesBeforTax: ()=>dispatch({type: action.INCOMES_PER_MONTH}),
         onIncomesTaxesMonth: ()=>dispatch({type: action.TAX_MONTH}),
-        onNetIncomeMonth: ()=>dispatch({type:action.NET_INCOMES_MONTH})
+        onNetIncomeMonth: ()=>dispatch({type: action.NET_INCOMES_MONTH}),
+        onChangeControlHandler: (event)=>dispatch({type: action.CHANGE_CONTROL_HANDLER, event: event})
     }
 }
 export default connect(mapStoP, mapDtoP)(Raport);
