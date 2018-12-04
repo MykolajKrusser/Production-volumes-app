@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactCalendar from 'react-calendar';
-import classes from './Calendar.css';
+import  './Calendar.css';
 
 class Calendar extends Component {
     constructor(props) {
@@ -12,11 +12,10 @@ class Calendar extends Component {
     onChange = date => this.setState({ date })
 
     render() {
-        console.log("CalendarComponents");
         return (
 
             <ReactCalendar
-                className={classes.ReactCustomCalendar}
+                className="reactCustomCalendar"
                 locale="en-EN"
                 onChange={this.onChange}
                 value={this.state.date}

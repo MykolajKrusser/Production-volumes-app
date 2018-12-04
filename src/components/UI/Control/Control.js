@@ -8,7 +8,8 @@ const control = (props)=>(
     <div className={classes.Control}>
         <h3>{props.children}</h3>
         <Input 
-            type='text'
+            title={props.title}
+            type={props.type}
             value={props.value}
             onChange={props.input}
             width='70%'/>

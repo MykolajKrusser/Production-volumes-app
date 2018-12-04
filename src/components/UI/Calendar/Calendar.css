@@ -1,11 +1,65 @@
-/* Calendar */
-.ReactCustomCalendar {
+:global .reactCustomCalendar {
   border: none;
-  width: 100%;
+  max-width: 350px;
+  margin: 0 15px 0 15px;
 }
-.ReactCustomCalendar .react-calendar__navigation {
-  height: 95px;
-  background-color: #393D51;
+:global .reactCustomCalendar .react-calendar__navigation {
+  background-color: #2E3040;
   margin-bottom: 0;
 }
-  
+:global .reactCustomCalendar .react-calendar__navigation button {
+  color: white;
+  background-color: #2E3040;
+  border-width: 0px;
+}
+:global .reactCustomCalendar .react-calendar__navigation .react-calendar__navigation__prev-button {
+  margin-left: 50px;
+  background-color: #2E3040;
+}
+:global .reactCustomCalendar .react-calendar__navigation .react-calendar__navigation__next-button {
+  margin-right: 50px;
+}
+:global .reactCustomCalendar .react-calendar__navigation .react-calendar__navigation__prev2-button {
+  display: none;
+}
+:global .reactCustomCalendar .react-calendar__navigation .react-calendar__navigation__next2-button {
+  display: none;
+}
+:global .reactCustomCalendar .react-calendar__navigation .react-calendar__navigation__label {
+  color: white;
+  font-size: 24px;
+  background-color: #2E3040;
+}
+:global .reactCustomCalendar .react-calendar__month-view {
+  background-color: #2E3040;
+}
+:global .reactCustomCalendar .react-calendar__month-view .react-calendar__month-view__weekdays {
+  margin: 15px;
+  background-color: #2E3040;
+  border-width: 0px;
+}
+:global .reactCustomCalendar .react-calendar__month-view .react-calendar__month-view__weekdays .react-calendar__month-view__weekdays__weekday {
+  color: #9DA3B3;
+  font-size: 14px;
+  font-weight: 400;
+}
+:global .reactCustomCalendar .react-calendar__month-view .react-calendar__month-view__days {
+  margin: 0 15px 15px 15px;
+  background-color: #2E3040;
+  border-width: 0px;
+}
+:global .reactCustomCalendar .react-calendar__month-view .react-calendar__month-view__days .react-calendar__month-view__days__day {
+  color: white;
+  background-color: #2E3040;
+  border-width: 0px;
+}
+:global .reactCustomCalendar .react-calendar__month-view .react-calendar__month-view__days .react-calendar__month-view__days__day--neighboringMonth {
+  color: #9DA3B3;
+  background-color: #2E3040;
+  border-width: 0px;
+}
+:global .reactCustomCalendar .react-calendar__month-view .react-calendar__month-view__days .react-calendar__tile--active {
+  background-color: #2195F3;
+  border-radius: 50%;
+  outline: none;
+}
